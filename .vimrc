@@ -2,6 +2,9 @@ syntax enable
 
 let mapleader = ","
 
+set number
+set backspace=indent,eol,start
+
 nnoremap <Leader>w :w<Return>
 nnoremap <Leader>s :so ~/.vimrc<Return>
 nnoremap <Leader>e :e ~/.vimrc<Return>
