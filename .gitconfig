@@ -1,0 +1,14 @@
+[user]
+	name = Brandon Duff
+	email = brandonduff17@gmail.com
+[diff]
+	tool = vimdiff
+[alias]
+	d = difftool
+	co = checkout
+	st = status
+	ci = commit
+[core]
+	editor = vim
+[push]
+	default = matching
