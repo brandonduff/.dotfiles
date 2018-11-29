@@ -5,6 +5,7 @@ let mapleader = ","
 nnoremap <Leader>w :w<Return>
 nnoremap <Leader>s :so ~/.vimrc<Return>
 nnoremap <Leader>e :e ~/.vimrc<Return>
+nnoremap <Leader>q :wq<Return>
 inoremap fd <Esc>
 inoremap <C-]> <Esc>O
 
