@@ -22,4 +22,5 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'elixir-editors/vim-elixir'
+Plug 'tpope/vim-endwise'
 call plug#end()
