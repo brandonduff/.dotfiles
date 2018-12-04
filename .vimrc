@@ -4,11 +4,13 @@ let mapleader = ","
 
 set number
 set backspace=indent,eol,start
+set hlsearch
 
 nnoremap <Leader>w :w<Return>
 nnoremap <Leader>s :so ~/.vimrc<Return>
 nnoremap <Leader>e :e ~/.vimrc<Return>
 nnoremap <Leader>q :wq<Return>
+nnoremap <Leader><CR> :noh<CR>
 inoremap fd <Esc>
 inoremap <C-]> <Esc>O
 
