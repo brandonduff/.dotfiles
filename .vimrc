@@ -24,3 +24,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-endwise'
 call plug#end()
+
+" Save on leaving insert
+autocmd InsertLeave <buffer> update
