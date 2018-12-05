@@ -1,4 +1,8 @@
 syntax enable
+filetype plugin on
+" Search down into subfolders when doing file finds
+set path+=**
+set wildmenu
 
 let mapleader = ","
 
@@ -13,6 +17,7 @@ nnoremap <Leader>q :wq<Return>
 nnoremap <Leader><CR> :noh<CR>
 inoremap fd <Esc>
 inoremap <C-]> <Esc>O
+nnoremap <Leader>cd :cd %:h<CR>
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
