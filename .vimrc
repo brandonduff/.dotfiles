@@ -28,6 +28,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " Save on leaving insert
