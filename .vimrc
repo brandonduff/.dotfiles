@@ -29,7 +29,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
+Plug 'gu-fan/simpleterm.vim'
 call plug#end()
 
 " Save on leaving insert
-autocmd InsertLeave <buffer> update
+autocmd InsertLeave * write
+
+nnoremap <Leader>t :Sexe mix test<CR>
