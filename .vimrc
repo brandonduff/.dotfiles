@@ -1,5 +1,5 @@
 syntax enable
-filetype plugin on
+filetype plugin indent on
 " Search down into subfolders when doing file finds
 set path+=**
 set wildmenu
@@ -36,3 +36,14 @@ call plug#end()
 autocmd InsertLeave * write
 
 nnoremap <Leader>t :Sexe mix test<CR>
+
+" Copy file path to clipboard
+nnoremap <Leader>cp :let @+ = expand('%')<CR>
+
+" Ruby bindings
+
+" Run RSpec on current dir
+nnoremap <Leader>rr :!rspec .<CR>
+
+" Run RSpec on current file
+nnoremap <Leader>rf :!rspec %<CR>
