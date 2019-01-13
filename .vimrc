@@ -30,6 +30,8 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'gu-fan/simpleterm.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Save on leaving insert
@@ -47,3 +49,5 @@ nnoremap <Leader>rr :!rspec .<CR>
 
 " Run RSpec on current file
 nnoremap <Leader>rf :!rspec %<CR>
+nnoremap <Leader>d :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
