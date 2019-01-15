@@ -1,5 +1,12 @@
 syntax enable
 filetype plugin indent on
+set sw=4
+set ts=4
+autocmd Filetype ruby set softtabstop=2
+autocmd Filetype ruby set sw=2
+autocmd Filetype ruby set ts=2
+
+autocmd Filetype markdown set spell
 " Search down into subfolders when doing file finds
 set path+=**
 set wildmenu
@@ -32,6 +39,7 @@ Plug 'tpope/vim-commentary'
 Plug 'gu-fan/simpleterm.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'kien/ctrlp.vim'
 call plug#end()
 
 " Save on leaving insert
@@ -49,5 +57,6 @@ nnoremap <Leader>rr :!rspec .<CR>
 
 " Run RSpec on current file
 nnoremap <Leader>rf :!rspec %<CR>
-nnoremap <Leader>d :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
+
+let g:netrw_banner=0
+
