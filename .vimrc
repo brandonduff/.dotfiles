@@ -6,6 +6,8 @@ autocmd Filetype ruby set softtabstop=2
 autocmd Filetype ruby set sw=2
 autocmd Filetype ruby set ts=2
 
+noswapfile
+
 autocmd Filetype markdown set spell
 " Search down into subfolders when doing file finds
 set path+=**
@@ -40,7 +42,9 @@ Plug 'tpope/vim-commentary'
 Plug 'gu-fan/simpleterm.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 " Save on leaving insert
@@ -50,6 +54,9 @@ nnoremap <Leader>t :Sexe mix test<CR>
 
 " Copy file path to clipboard
 nnoremap <Leader>cp :let @+ = expand('%')<CR>
+
+" Copy file path to clipboard
+nnoremap <Leader>cl :let @+ = expand('%') . ':' . line('.')<CR>
 
 " Ruby bindings
 
@@ -61,3 +68,4 @@ nnoremap <Leader>rf :!rspec %<CR>
 
 let g:netrw_banner=0
 
+noremap <C-p> :FZF<CR>

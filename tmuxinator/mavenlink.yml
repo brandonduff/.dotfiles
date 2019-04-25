@@ -1,7 +1,7 @@
 # /Users/brandonduff/.config/tmuxinator/development.yml
 
-name: development
-root: ~/workspace/tmux_book
+name: mavenlink
+root: ~/workspace/mavenlink
 
 # Optional tmux socket
 # socket_name: foo
@@ -43,12 +43,12 @@ root: ~/workspace/tmux_book
 # post: tmux -CC attach -t development
 
 windows:
-  - editor:
-      layout: main-horizontal
+  - console:
+      layout: tiled
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - vim
+        - dod ps
+        - dod start services
         -
-  - console:
