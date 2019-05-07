@@ -6,7 +6,8 @@ autocmd Filetype ruby set softtabstop=2
 autocmd Filetype ruby set sw=2
 autocmd Filetype ruby set ts=2
 
-noswapfile
+set noswapfile
+set nobackup
 
 autocmd Filetype markdown set spell
 " Search down into subfolders when doing file finds
