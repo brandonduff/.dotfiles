@@ -8,6 +8,11 @@ autocmd Filetype ruby set ts=2
 
 set noswapfile
 set nobackup
+
+if !isdirectory("/tmp/.vim-undo-dir")
+    call mkdir("/tmp/.vim-undo-dir", "", 0700)
+endif
+set undodir=/tmp/.vim-undo-dir
 set undofile
 
 autocmd Filetype markdown set spell
@@ -56,8 +61,6 @@ call plug#end()
 " Save on leaving insert
 autocmd InsertLeave * write
 
-nnoremap <Leader>t :Sexe mix test<CR>
-
 " Copy file path to clipboard
 nnoremap <Leader>cp :let @+ = expand('%')<CR>
 
@@ -69,7 +72,7 @@ nnoremap <Leader>cl :let @+ = expand('%') . ':' . line('.')<CR>
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
 " Run RSpec on nearest test
-nnoremap <Leader>rt :call RunNearestSpec()<CR>
+nnoremap <Leader>t :call RunNearestSpec()<CR>
 
 " Run RSpec on current file
 nnoremap <Leader>rf :call RunCurrentSpecFile()<CR>
