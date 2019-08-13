@@ -46,6 +46,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'masukomi/vim-markdown-folding'
+Plug 'thoughtbot/vim-rspec'
+Plug 'jgdavey/tslime.vim'
 call plug#end()
 
 " Save on leaving insert
@@ -61,11 +64,13 @@ nnoremap <Leader>cl :let @+ = expand('%') . ':' . line('.')<CR>
 
 " Ruby bindings
 
-" Run RSpec on current dir
-nnoremap <Leader>rr :!rspec .<CR>
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+
+" Run RSpec on nearest test
+nnoremap <Leader>rt :call RunNearestSpec()<CR>
 
 " Run RSpec on current file
-nnoremap <Leader>rf :!rspec %<CR>
+nnoremap <Leader>rf :call RunCurrentSpecFile()<CR>
 
 let g:netrw_banner=0
 
