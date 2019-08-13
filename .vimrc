@@ -8,6 +8,7 @@ autocmd Filetype ruby set ts=2
 
 set noswapfile
 set nobackup
+set undofile
 
 autocmd Filetype markdown set spell
 " Search down into subfolders when doing file finds
