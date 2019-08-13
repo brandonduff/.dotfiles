@@ -56,7 +56,21 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'masukomi/vim-markdown-folding'
 Plug 'thoughtbot/vim-rspec'
 Plug 'jgdavey/tslime.vim'
+Plug 'rking/ag.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'ruby': ['/Users/mavenlink/.rvm/gems/ruby-2.3.3@global/bin/solargraph', 'stdio'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>gd :call LanguageClient#textDocument_definition()<CR>
 
 " Save on leaving insert
 autocmd InsertLeave * write
