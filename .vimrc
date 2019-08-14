@@ -83,6 +83,9 @@ nnoremap <Leader>cp :let @+ = expand('%')<CR>
 " Copy file path to clipboard
 nnoremap <Leader>cl :let @+ = expand('%') . ':' . line('.')<CR>
 
+nnoremap <Leader>nf :NERDTreeFind<CR>
+nnoremap <Leader>nc :NERDTreeToggle<CR>
+
 " Ruby bindings
 
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
