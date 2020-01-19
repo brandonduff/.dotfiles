@@ -68,7 +68,7 @@ call plug#end()
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'ruby': ['~/.rvm/gems/ruby-2.3.3@global/bin/solargraph', 'stdio'],
+	  \	'ruby': ['~/.rbenv/shims/solargraph', 'stdio']
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -91,12 +91,13 @@ autocmd Filetype elixir nnoremap <Leader>t :Tmux mix test<CR>
 " Ruby bindings
 
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+autocmd Filetype ruby nnoremap <Leader>t :Tmux rake<CR>
 
 " Run RSpec on nearest test
-autocmd Filetype ruby nnoremap <Leader>t :call RunNearestSpec()<CR>
+" autocmd Filetype ruby nnoremap <Leader>t :call RunNearestSpec()<CR>
 
 " Run RSpec on current file
-nnoremap <Leader>rf :call RunCurrentSpecFile()<CR>
+" nnoremap <Leader>rf :call RunCurrentSpecFile()<CR>
 
 let g:netrw_banner=0
 
