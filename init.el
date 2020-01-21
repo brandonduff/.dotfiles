@@ -24,6 +24,7 @@
                      ruby-test-mode
                      rbenv
                      robe
+                     org-journal
                      magit))
 
 ; install the missing packages
@@ -37,9 +38,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-journal-file-type (quote weekly))
  '(package-selected-packages
    (quote
-    (magit helm-rg ag rbenv ruby-test-mode ruby-electric helm-ag helm-projectile helm better-defaults))))
+    (org-journal magit helm-rg ag rbenv ruby-test-mode ruby-electric helm-ag helm-projectile helm better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -53,12 +55,7 @@
 (require 'ido)
 (ido-mode t)
 
-;; Typography
-(set-face-attribute 'default nil
-                    :family "Source Code Pro"
-                    :height 150
-                    :weight 'normal
-                    :width 'normal)
+(require 'org-journal)
 
 (load-theme 'solarized-dark t)
 
