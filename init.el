@@ -41,7 +41,7 @@
  '(org-journal-file-type (quote weekly))
  '(package-selected-packages
    (quote
-    (org-journal magit helm-rg ag rbenv ruby-test-mode ruby-electric helm-ag helm-projectile helm better-defaults))))
+    (yaml-mode org-journal magit helm-rg ag rbenv ruby-test-mode ruby-electric helm-ag helm-projectile helm better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -54,6 +54,8 @@
 ; (define-key global-map "\C-cc" 'org-capture)
 (require 'ido)
 (ido-mode t)
+
+(global-set-key (kbd "C-c g") 'magit)
 
 (require 'org-journal)
 
@@ -68,15 +70,29 @@
 (add-hook 'ruby-mode-hook 'ruby-test-mode)
 (add-hook 'ruby-mode-hook (lambda ()
                             (set 'compile-command "rake " )))
+(add-hook 'ruby-mode-hook (lambda ()
+                            (local-set-key (kbd "C-C C-C") 'recompile)))
 
 (require 'robe)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
-
+(require 'yaml-mode)
+ (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 (require 'rbenv)
 (global-rbenv-mode)
 
-(global-set-key (kbd "C-C C-C") 'recompile)
-
 (add-to-list 'exec-path "/usr/local/bin/")
+
+(add-hook 'text-mode-hook #'visual-line-mode)
+(global-set-key (kbd "C-x C-l") #'perfect-margin-mode)
+
+(require 'ox-odt)
+(setq org-odt-preferred-output-format "docx")
+
+(defun eval-buffer-and-test ()
+  (eval-buffer)
+  (ert t))
+
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+                            (local-set-key (kbd "C-c C-c") (lambda () (interactive) (eval-buffer-and-test)))))
