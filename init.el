@@ -41,7 +41,7 @@
  '(org-journal-file-type (quote weekly))
  '(package-selected-packages
    (quote
-    (yaml-mode org-journal magit helm-rg ag rbenv ruby-test-mode ruby-electric helm-ag helm-projectile helm better-defaults))))
+    (yari markdown-mode wanderlust yaml-mode org-journal magit helm-rg ag rbenv ruby-test-mode ruby-electric helm-ag helm-projectile helm better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -59,7 +59,7 @@
 
 (require 'org-journal)
 
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "s-f") #'helm-projectile-ag)
@@ -76,6 +76,8 @@
 (require 'robe)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
+(add-hook 'ruby-mode-hook (lambda ()
+                            (local-set-key (kbd "C-c C-d") 'yari)))
 (require 'yaml-mode)
  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
@@ -96,3 +98,10 @@
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                             (local-set-key (kbd "C-c C-c") (lambda () (interactive) (eval-buffer-and-test)))))
+
+(defun exercism-submit ()
+  (shell-command (format "exercism submit %s" (buffer-file-name))))
+
+(global-set-key (kbd "C-c C-s") (lambda () (interactive) (exercism-submit)))
+
+(autoload 'wl "wl" "Wanderlust" t)
