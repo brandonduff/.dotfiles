@@ -41,7 +41,7 @@
  '(org-journal-file-type (quote weekly))
  '(package-selected-packages
    (quote
-    (yari markdown-mode wanderlust yaml-mode org-journal magit helm-rg ag rbenv ruby-test-mode ruby-electric helm-ag helm-projectile helm better-defaults))))
+    (yari markdown-mode wanderlust org-journal magit helm-rg ag rbenv ruby-test-mode ruby-electric helm-ag helm-projectile helm better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -58,6 +58,8 @@
 (global-set-key (kbd "C-c g") 'magit)
 
 (require 'org-journal)
+(setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
+(setq org-agenda-files (list org-journal-dir))
 
 (load-theme 'solarized-light t)
 
@@ -78,9 +80,6 @@
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 (add-hook 'ruby-mode-hook (lambda ()
                             (local-set-key (kbd "C-c C-d") 'yari)))
-(require 'yaml-mode)
- (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-
 (require 'rbenv)
 (global-rbenv-mode)
 
@@ -88,6 +87,12 @@
 
 (add-hook 'text-mode-hook #'visual-line-mode)
 (global-set-key (kbd "C-x C-l") #'perfect-margin-mode)
+
+; Enable Projectile
+(require 'projectile)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(projectile-mode +1)
 
 (require 'ox-odt)
 (setq org-odt-preferred-output-format "docx")
