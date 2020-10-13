@@ -24,6 +24,10 @@
                      ruby-test-mode
                      rbenv
                      robe
+                     forge
+                     github-review
+                     git-gutter
+                     projectile
                      org-journal
                      magit))
 
@@ -61,6 +65,9 @@
 (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
 (setq org-agenda-files (list org-journal-dir))
 
+(require 'git-gutter)
+(global-git-gutter-mode +1)
+
 (load-theme 'solarized-light t)
 
 (global-set-key (kbd "M-x") #'helm-M-x)
@@ -93,6 +100,9 @@
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (projectile-mode +1)
+
+(with-eval-after-load 'magit
+  (require 'forge))
 
 (require 'ox-odt)
 (setq org-odt-preferred-output-format "docx")
