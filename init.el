@@ -29,6 +29,7 @@
                      git-gutter
                      projectile
                      org-journal
+                     ripgrep
                      magit))
 
 ; install the missing packages
@@ -122,3 +123,11 @@
 (autoload 'wl "wl" "Wanderlust" t)
 
 (global-set-key (kbd "C-c C-M-j") 'org-journal-open-current-journal-file)
+
+; Make terminal colors work when running tests with Projectile
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (toggle-read-only)
+  (ansi-color-apply-on-region (point-min) (point-max))
+  (toggle-read-only))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
