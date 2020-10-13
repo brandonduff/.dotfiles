@@ -120,3 +120,5 @@
 (global-set-key (kbd "C-c C-s") (lambda () (interactive) (exercism-submit)))
 
 (autoload 'wl "wl" "Wanderlust" t)
+
+(global-set-key (kbd "C-c C-M-j") 'org-journal-open-current-journal-file)
