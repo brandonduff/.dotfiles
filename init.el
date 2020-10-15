@@ -88,12 +88,15 @@
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 (add-hook 'ruby-mode-hook (lambda ()
                             (local-set-key (kbd "C-c C-d") 'yari)))
+
+(setq ruby-insert-encoding-magic-comment nil)
 (require 'rbenv)
 (global-rbenv-mode)
 
 (add-to-list 'exec-path "/usr/local/bin/")
 
 (add-hook 'text-mode-hook #'visual-line-mode)
+(add-hook 'text-mode-hook #'flyspell-mode)
 (global-set-key (kbd "C-x C-l") #'perfect-margin-mode)
 
 ; Enable Projectile
