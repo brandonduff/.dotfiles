@@ -24,6 +24,7 @@
                      ruby-test-mode
                      rbenv
                      robe
+                     ruby-refactor
                      forge
                      github-review
                      git-gutter
@@ -88,6 +89,9 @@
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 (add-hook 'ruby-mode-hook (lambda ()
                             (local-set-key (kbd "C-c C-d") 'yari)))
+
+(require 'ruby-refactor)
+(add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
 
 (setq ruby-insert-encoding-magic-comment nil)
 (require 'rbenv)
