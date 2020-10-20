@@ -26,13 +26,12 @@
                      rbenv
                      robe
                      ruby-refactor
-                     forge
-                     github-review
                      git-gutter
                      projectile
                      org-journal
                      ripgrep
-                     magit))
+                     magit
+                     ))
 
 ; install the missing packages
 (dolist (package package-list)
