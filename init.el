@@ -16,6 +16,7 @@
 
 ; list the packages you want
 (setq package-list '(better-defaults
+                     auto-complete
                      solarized-theme
                      helm
                      helm-projectile
@@ -63,6 +64,9 @@
 
 (global-set-key (kbd "C-c g") 'magit)
 
+; Default auto-complete config
+(ac-config-default)
+
 (require 'org-journal)
 (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
 (setq org-agenda-files (list org-journal-dir))
@@ -80,7 +84,7 @@
 (require 'ruby-test-mode)
 (add-hook 'ruby-mode-hook 'ruby-test-mode)
 (add-hook 'ruby-mode-hook (lambda ()
-                            (set 'compile-command "rake " )))
+                            (set 'compile-command "bundle exec rake " )))
 (add-hook 'ruby-mode-hook (lambda ()
                             (local-set-key (kbd "C-C C-C") 'recompile)))
 
@@ -89,6 +93,7 @@
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 (add-hook 'ruby-mode-hook (lambda ()
                             (local-set-key (kbd "C-c C-d") 'yari)))
+(add-hook 'robe-mode-hook 'ac-robe-setup)
 
 (require 'ruby-refactor)
 (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
@@ -130,7 +135,7 @@
 (autoload 'wl "wl" "Wanderlust" t)
 
 (global-set-key (kbd "C-c C-M-j") 'org-journal-open-current-journal-file)
-
+(global-set-key (kbd "C-c s l") 'org-store-link)
 ; Make terminal colors work when running tests with Projectile
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
