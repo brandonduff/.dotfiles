@@ -134,6 +134,7 @@
 
 (autoload 'wl "wl" "Wanderlust" t)
 
+(add-hook 'org-mode-hook 'org-indent-mode)
 (global-set-key (kbd "C-c C-M-j") 'org-journal-open-current-journal-file)
 (global-set-key (kbd "C-c s l") 'org-store-link)
 ; Make terminal colors work when running tests with Projectile
