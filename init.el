@@ -31,6 +31,8 @@
                      org-journal
                      ripgrep
                      magit
+                     ox-reveal
+                     ox-gfm
                      ))
 
 ; install the missing packages
@@ -143,3 +145,5 @@
   (ansi-color-apply-on-region (point-min) (point-max))
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+(setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
