@@ -33,6 +33,7 @@
                      magit
                      ox-reveal
                      ox-gfm
+                     htmlize
                      ))
 
 ; install the missing packages
@@ -148,4 +149,5 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
+(require 'ox-reveal)
 (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
