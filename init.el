@@ -71,6 +71,8 @@
 (require 'org-journal)
 (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
 (setq org-agenda-files (list org-journal-dir))
+(setq org-refile-targets '((nil :maxlevel . 2) (org-agenda-files :maxlevel . 2)))
+(add-hook 'org-mode-hook 'helm-mode)
 
 (require 'git-gutter)
 (global-git-gutter-mode +1)
