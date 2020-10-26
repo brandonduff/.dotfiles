@@ -150,4 +150,5 @@
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 (require 'ox-reveal)
-(setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
+; This assumes org-reveal is cloned into the specified dir. Need this for speaker notes
+(setq org-reveal-root (expand-file-name "~/reveal.js-master"))
