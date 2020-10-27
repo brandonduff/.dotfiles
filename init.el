@@ -32,7 +32,6 @@
                      ripgrep
                      magit
                      ox-reveal
-                     ox-gfm
                      htmlize
                      ))
 
